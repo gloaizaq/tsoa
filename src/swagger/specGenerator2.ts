@@ -22,9 +22,9 @@ export class SpecGenerator2 extends SpecGenerator {
       swagger: '2.0',
     };
 
-    spec.securityDefinitions = this.config.securityDefinitions
-      ? this.config.securityDefinitions
-      : {};
+    if (this.config.securityDefinitions) {
+      spec.securityDefinitions = this.config.securityDefinitions;
+    }
 
     if (this.config.name) { spec.info.title = this.config.name; }
     if (this.config.version) { spec.info.version = this.config.version; }
